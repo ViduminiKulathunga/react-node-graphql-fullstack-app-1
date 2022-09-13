@@ -6,7 +6,7 @@ import { connectDatabase } from './database';
 import { typeDefs, resolvers } from './graphql';
 
 const mount = async (app: Application) => {
-  const db = connectDatabase();
+  const db = await connectDatabase();
   const server = new ApolloServer({ typeDefs, resolvers, context: () => ({ db }) });
   await server.start();
   server.applyMiddleware({ app, path: '/api' });
