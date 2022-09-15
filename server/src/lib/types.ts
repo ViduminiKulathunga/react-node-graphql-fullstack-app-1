@@ -16,7 +16,6 @@ export interface Database {
   listings: Collection<Listing>;
 }
 
-
 // ---- Generics
 interface IdentityObj<T = number> {
   field: T;
