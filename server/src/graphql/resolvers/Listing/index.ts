@@ -9,6 +9,7 @@ export const listingResolver: IResolvers = {
       _args: {}, 
       { db }: { db: Database }
     ): Promise<Listing[]> => {
+      //throw new Error("Error!");
       return await db.listings.find({}).toArray();
     },
   },
@@ -18,6 +19,7 @@ export const listingResolver: IResolvers = {
       { id }: { id: string }, 
       { db }: { db: Database }
     ) => {
+      //throw new Error("Failed to delete Listing");
       const deleteRes = await db.listings.findOneAndDelete({
         _id: new ObjectId(id),
       });
